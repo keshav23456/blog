@@ -11,7 +11,7 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
         </label>
       )}
 
-      <div className="relative rounded-lg border border-gray-300 shadow-sm hover:border-blue-500 transition-colors duration-200">
+      <div className="relative rounded-lg border border-gray-200 shadow-soft hover:border-primary-500 transition-colors duration-200">
         <Controller
           name={name || "content"}
           control={control}
@@ -36,32 +36,40 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
                 ].join(" "),
                 content_style: `
                   body {
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+                    font-family: 'Open Sans', sans-serif;
                     font-size: 16px;
                     line-height: 1.6;
-                    color: #374151;
+                    color: #333944;
                     margin: 1rem;
                   }
                   h1, h2, h3, h4, h5, h6 {
+                    font-family: 'Roboto', sans-serif;
                     font-weight: 600;
                     line-height: 1.25;
                     margin-top: 1.5em;
                     margin-bottom: 0.5em;
+                    color: #1a1a1a;
                   }
                   p { margin: 1em 0; }
-                  a { color: #2563eb; }
-                  img { max-width: 100%; height: auto; }
+                  a { color: #0071e6; }
+                  img { 
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                  }
                   blockquote {
-                    border-left: 4px solid #e5e7eb;
+                    border-left: 4px solid #0071e6;
                     margin: 1em 0;
                     padding-left: 1em;
                     font-style: italic;
+                    color: #556275;
                   }
                   code {
-                    background: #f3f4f6;
+                    background: #f5f6f7;
                     padding: 0.2em 0.4em;
                     border-radius: 3px;
                     font-size: 0.9em;
+                    color: #333944;
                   }
                 `,
                 setup: (editor) => {
