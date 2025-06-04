@@ -22,6 +22,7 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
               init={{
                 height: 500,
                 menubar: true,
+                readonly: false,
                 skin: "oxide",
                 content_css: "default",
                 plugins: [
