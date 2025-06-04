@@ -80,50 +80,58 @@ export default function PostForm({ post }) {
 
   return (
     <form onSubmit={handleSubmit(submit)} className="space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="md:col-span-2 space-y-6">
-          <Input
-            label="Title"
-            placeholder="Enter post title"
-            error={errors.title?.message}
-            {...register("title", { 
-              required: "Title is required",
-              minLength: {
-                value: 3,
-                message: "Title must be at least 3 characters"
-              }
-            })}
-          />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2 space-y-6">
+          <div className="card p-6">
+            <Input
+              label="Title"
+              placeholder="Enter post title"
+              className="text-xl font-display"
+              error={errors.title?.message}
+              {...register("title", { 
+                required: "Title is required",
+                minLength: {
+                  value: 3,
+                  message: "Title must be at least 3 characters"
+                }
+              })}
+            />
 
-          <Input
-            label="Slug"
-            placeholder="Post URL slug"
-            error={errors.slug?.message}
-            {...register("slug", { 
-              required: "Slug is required",
-              pattern: {
-                value: /^[a-z0-9-]+$/,
-                message: "Slug can only contain lowercase letters, numbers, and hyphens"
-              }
-            })}
-            onInput={(e) => {
-              setValue("slug", slugTransform(e.currentTarget.value), {
-                shouldValidate: true,
-              });
-            }}
-          />
+            <Input
+              label="Slug"
+              placeholder="Post URL slug"
+              className="mt-4"
+              error={errors.slug?.message}
+              {...register("slug", { 
+                required: "Slug is required",
+                pattern: {
+                  value: /^[a-z0-9-]+$/,
+                  message: "Slug can only contain lowercase letters, numbers, and hyphens"
+                }
+              })}
+              onInput={(e) => {
+                setValue("slug", slugTransform(e.currentTarget.value), {
+                  shouldValidate: true,
+                });
+              }}
+            />
+          </div>
 
-          <RTE
-            label="Content"
-            name="content"
-            control={control}
-            defaultValue={getValues("content")}
-          />
+          <div className="card p-6">
+            <RTE
+              label="Content"
+              name="content"
+              control={control}
+              defaultValue={getValues("content")}
+            />
+          </div>
         </div>
 
         <div className="space-y-6">
-          <div className="p-4 bg-gray-50 rounded-lg">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">Post Settings</h3>
+          <div className="card p-6">
+            <h3 className="text-lg font-display font-semibold text-gray-900 mb-4">
+              Post Settings
+            </h3>
             
             <div className="space-y-4">
               <Input
@@ -135,11 +143,11 @@ export default function PostForm({ post }) {
               />
 
               {post?.featuredImage && (
-                <div className="mt-2">
+                <div className="mt-2 rounded-lg overflow-hidden">
                   <img
                     src={appwriteService.getFilePreview(post.featuredImage)}
                     alt={post.title}
-                    className="rounded-lg shadow-sm"
+                    className="w-full h-auto"
                   />
                 </div>
               )}
