@@ -11,7 +11,11 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
         </label>
       )}
 
+<<<<<<< HEAD
       <div className="relative rounded-lg border border-gray-200 shadow-soft hover:border-primary-500 transition-colors duration-200">
+=======
+      <div className="relative rounded-lg border border-gray-300 shadow-sm hover:border-blue-500 transition-colors duration-200">
+>>>>>>> d
         <Controller
           name={name || "content"}
           control={control}
@@ -36,6 +40,7 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
                 ].join(" "),
                 content_style: `
                   body {
+<<<<<<< HEAD
                     font-family: 'Open Sans', sans-serif;
                     font-size: 16px;
                     line-height: 1.6;
@@ -44,10 +49,20 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
                   }
                   h1, h2, h3, h4, h5, h6 {
                     font-family: 'Roboto', sans-serif;
+=======
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+                    font-size: 16px;
+                    line-height: 1.6;
+                    color: #374151;
+                    margin: 1rem;
+                  }
+                  h1, h2, h3, h4, h5, h6 {
+>>>>>>> d
                     font-weight: 600;
                     line-height: 1.25;
                     margin-top: 1.5em;
                     margin-bottom: 0.5em;
+<<<<<<< HEAD
                     color: #1a1a1a;
                   }
                   p { margin: 1em 0; }
@@ -70,6 +85,23 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
                     border-radius: 3px;
                     font-size: 0.9em;
                     color: #333944;
+=======
+                  }
+                  p { margin: 1em 0; }
+                  a { color: #2563eb; }
+                  img { max-width: 100%; height: auto; }
+                  blockquote {
+                    border-left: 4px solid #e5e7eb;
+                    margin: 1em 0;
+                    padding-left: 1em;
+                    font-style: italic;
+                  }
+                  code {
+                    background: #f3f4f6;
+                    padding: 0.2em 0.4em;
+                    border-radius: 3px;
+                    font-size: 0.9em;
+>>>>>>> d
                   }
                 `,
                 setup: (editor) => {
